@@ -10,3 +10,9 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+
+// save train information from input 
+
+// push saved train information to database
+
+// retrieve train information from database to display in train display div
