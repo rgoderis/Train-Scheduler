@@ -25,8 +25,22 @@ $(document).ready(function(){
 
 
 // set click listener to #train-submit
-$("#train-submit").on("click", function(){
+$("#train-submit").on("click", function(event){
     alert("You clicked the button")
+    // prevent page from refreshing
+    event.preventDefault();
+
+    // get inputs
+    trainName = $("#train-name").val().trim();
+    trainDestination = $("#train-destination").val().trim();
+    trainTime = $("#train-time").val().trim();
+    trainFrequency = $("#train-frequency").val().trim();
+    
+    console.log(trainName)
+    console.log(trainDestination)
+    console.log(trainTime)
+    console.log(trainFrequency)
+
 });
 
 // save train information from input 
