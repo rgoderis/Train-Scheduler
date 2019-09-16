@@ -9,10 +9,10 @@
     appId: "1:322959206384:web:6aa67b4086335381a5df35"
   };
   // Initialize Firebase
-//   firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
 
 //   create var to reference database
-// var database = firebase.database();
+var database = firebase.database();
 
 // variables for input info
 var trainName = "";
@@ -20,17 +20,14 @@ var trainDestination = "";
 var trainTime = "";
 var trainFrequency = "";
 
-
 $(document).ready(function(){
-
 
 // set click listener to #train-submit
 $("#train-submit").on("click", function(event){
-    alert("You clicked the button")
     // prevent page from refreshing
     event.preventDefault();
 
-    // get inputs
+    // save train information from input
     trainName = $("#train-name").val().trim();
     trainDestination = $("#train-destination").val().trim();
     trainTime = $("#train-time").val().trim();
@@ -40,10 +37,14 @@ $("#train-submit").on("click", function(event){
     console.log(trainDestination)
     console.log(trainTime)
     console.log(trainFrequency)
-
+  // initial database info
+    database.ref().set({
+      trainName: trainName,
+      trainDestination: trainDestination,
+      trainTime: trainTime,
+      trainFrequency: trainFrequency
+    })
 });
-
-// save train information from input 
 
 // push saved train information to database
 
