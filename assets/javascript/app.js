@@ -37,6 +37,8 @@ $("#train-submit").on("click", function(event){
     console.log(trainDestination)
     console.log(trainTime)
     console.log(trainFrequency)
+  
+  // push saved train information to database
   // initial database info
     database.ref().set({
       trainName: trainName,
@@ -46,7 +48,7 @@ $("#train-submit").on("click", function(event){
     })
 });
 
-// push saved train information to database
+
 
 // retrieve train information from database to display in train display div
 
