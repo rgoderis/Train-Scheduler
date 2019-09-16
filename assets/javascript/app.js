@@ -15,10 +15,13 @@
 var database = firebase.database();
 
 // variables for input info
-var trainName = "";
-var trainDestination = "";
-var trainTime = "";
-var trainFrequency = "";
+var trainName;
+var trainDestination;
+var firstTrain;
+var trainFrequency;
+var trainNextArrival;
+var trainMinutesAway;
+
 
 $(document).ready(function(){
 
@@ -30,26 +33,36 @@ $("#train-submit").on("click", function(event){
     // save train information from input
     trainName = $("#train-name").val().trim();
     trainDestination = $("#train-destination").val().trim();
-    trainTime = $("#train-time").val().trim();
+    firstTrain = $("#train-time").val().trim();
     trainFrequency = $("#train-frequency").val().trim();
     
-    console.log(trainName)
-    console.log(trainDestination)
-    console.log(trainTime)
-    console.log(trainFrequency)
-  
-  // push saved train information to database
-  // initial database info
-    database.ref().set({
-      trainName: trainName,
-      trainDestination: trainDestination,
-      trainTime: trainTime,
-      trainFrequency: trainFrequency
-    })
+  // initial database info  
+    var newTrain = {
+      name: trainName,
+      destination: trainDestination,
+      firstTrain: firstTrain,
+      frequency: trainFrequency
+    }
+
+  // push newTrain information to database
+    database.ref().push(newTrain)
+
+    // log the newTrain info
+    console.log(newTrain.name)
+    console.log(newTrain.destination)
+    console.log(newTrain.firstTrain)
+    console.log(newTrain.frequency)
+
+    // clear text boxes
+    $("#train-name").val("")
+    $("#train-destination").val("")
+    $("#train-time").val("")
+    $("#train-frequency").val("")
 });
 
 
 
 // retrieve train information from database to display in train display div
+
 
 });
