@@ -60,9 +60,27 @@ $("#train-submit").on("click", function(event){
     $("#train-frequency").val("")
 });
 
-
-
 // retrieve train information from database to display in train display div
+database.ref().on("child_added", function(snap){
+  console.log(snap.val());
 
+  var tName = snap.val().name;
+  var tDestination = snap.val().destination;
+  var tFirstTrain = snap.val().firstTrain;
+  var tFrequency = snap.val().frequency;
+
+  // next arrival time
+
+  // display results inside table
+  var newRow = $("<tr>").append(
+    $("<td>").text(tName),
+    $("<td>").text(tDestination),
+    $("<td>").text(tFrequency),
+    $("<td>").text("to be calculated"),
+    $("<td>").text("to be calculated"),
+  );
+  $("#train-display").append(newRow)
+
+});
 
 });
