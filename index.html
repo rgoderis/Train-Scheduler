@@ -16,13 +16,16 @@
 </head>
 <body>
     <!-- app header -->
-    <header id ="header">
-        <h1 class="text-center">Train Scheduler</h1>
-        <h3>Where Will Your Next Journey Take You?</h3>
+    <header id ="header" class="navbar-dark bg-dark">
+        <h1 class="text-center text-white">Train Scheduler</h1>
+        <h3 class="text-center text-white">Where Will Your Next Journey Take You?</h3>
     </header>
 
     <!-- div displaying train times -->
-    <div class="container" id="train-display">
+    <div id="train-display" class="container border border-primary rounded">
+        <nav class="navbar navbar-dark bg-dark">
+          <span class="navbar-brand mb-0 h1">Current Train Schedule</span>
+        </nav>
         <table class="table">
             <thead>
               <tr>
@@ -39,8 +42,11 @@
     </div>
 
     <!--  div with form to input new train info-->
-    <div class="container">
-        <form>
+    <div id="train-input" class="container border border-primary rounded"> 
+        <nav class="navbar navbar-dark bg-dark">
+          <span class="navbar-brand mb-0 h1">Add Train</span>
+        </nav>
+        <form id="train-form">
             <div class="form-group">
                 <label>Train Name</label>
                 <input type="text" id="train-name" class="form-control">
@@ -57,7 +63,7 @@
                 <label>Frequency (min)</label>
                 <input type="text" id="train-frequency" class="form-control">
             </div>
-            <button type="submit" id="train-submit">Submit</button>
+            <button type="submit" id="train-submit" class="btn btn-dark">Submit</button>
         </form>
     </div>
     

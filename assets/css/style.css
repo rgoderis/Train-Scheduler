@@ -1,9 +1,24 @@
 body {
-    background-image: url(../images/pattern.jpg)
+    /* background-image: url(../images/pattern.jpg) */
     /* background-image: linear-gradient(to right, rgb(68, 68, 236) , rgb(104, 104, 167)); */
     
 }
 
 #header{
     /* background-image: linear-gradient(to right, rgb(68, 68, 236) , rgb(104, 104, 167)); */
+}
+
+#train-display{
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding: 0;
+}
+
+#train-input{
+    padding: 0;
+    margin-top: 1em;
+}
+
+#train-form{
+    margin: 1em;
 }
