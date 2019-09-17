@@ -69,17 +69,43 @@ database.ref().on("child_added", function(snap){
   var tFirstTrain = snap.val().firstTrain;
   var tFrequency = snap.val().frequency;
 
-  // next arrival time
+  // calculate next arrival
+  // make sure first train time is sanitized as HH:mm
+  var firstTrainConverted = moment(tFirstTrain, "HH:mm").subtract(1, "years");
+  console.log(firstTrainConverted);
+
+  // get the current time
+  var currentTime = moment();
+  console.log("Current time: " + moment(currentTime).format("hh:mm"));
+
+  // diffence between current time and first arrival
+  var diff = moment().diff(moment(firstTrainConverted), "minutes");
+  console.log("Difference in time: " + diff);
+
+  // Time apart (remainder)
+  var tRemainder = diff % tFrequency;
+  console.log(tRemainder);
+
+  // minutes until next train
+  var minTillTrain = tFrequency - tRemainder;
+  console.log("minutes until next train: " + minTillTrain);
+
+  // calculate next train arrival
+  var nextTrain = moment().add(minTillTrain, "minutes");
+  console.log("Arrival Time: " + moment(nextTrain).format("hh:mm"))
+
+
+
 
   // display results inside table
   var newRow = $("<tr>").append(
     $("<td>").text(tName),
     $("<td>").text(tDestination),
     $("<td>").text(tFrequency),
-    $("<td>").text("to be calculated"),
-    $("<td>").text("to be calculated"),
+    $("<td>").text(moment(nextTrain).format("hh:mm")),
+    $("<td>").text(minTillTrain),
   );
-  $("#train-display").append(newRow)
+  $("#train-body").append(newRow)
 
 });
 
