@@ -29,13 +29,18 @@ $(document).ready(function(){
 $("#train-submit").on("click", function(event){
     // prevent page from refreshing
     event.preventDefault();
-
+    if($("#train-name").val().trim() === ""|| $("#train-destination").val().trim() ===""|| $("#train-time").val().trim() === ""|| $("#train-frequency").val().trim() === ""){
+      console.log("please enter all fields")
+      return false
+    } else{
     // save train information from input
     trainName = $("#train-name").val().trim();
     trainDestination = $("#train-destination").val().trim();
     firstTrain = $("#train-time").val().trim();
     trainFrequency = $("#train-frequency").val().trim();
-    
+    // make sure there are values in the inputs
+
+    }
   // initial database info  
     var newTrain = {
       name: trainName,
@@ -52,6 +57,7 @@ $("#train-submit").on("click", function(event){
     $("#train-destination").val("")
     $("#train-time").val("")
     $("#train-frequency").val("")
+  
 });
 
 // retrieve train information from database to display in train display div
