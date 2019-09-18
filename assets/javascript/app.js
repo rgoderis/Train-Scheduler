@@ -92,7 +92,7 @@ database.ref().on("child_added", function(snap){
     $("<td>").text(tName),
     $("<td>").text(tDestination),
     $("<td>").text(tFrequency),
-    $("<td>").text(moment(nextTrain).format("hh:mm")),
+    $("<td>").text(moment(nextTrain).format("HH:mm")),
     $("<td>").text(minTillTrain),
   );
   $("#train-body").append(newRow)
