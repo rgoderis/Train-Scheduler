@@ -5,3 +5,5 @@ Train Scheduler is a app that allows the user to input and view train times.  Wh
 
 ### Train Scheduler View
 ![app](./assets/images/app.png)
+
+[Train Scheduler](https://rgoderis.github.io/Train-Scheduler/)
